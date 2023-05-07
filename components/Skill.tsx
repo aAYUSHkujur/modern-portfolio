@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { Skill } from "../typings";
+import { urlFor } from "../sanity";
 
 type Props = {
+  skill: Skill;
   directionLeft?: boolean;
 };
 
-function Skill({ directionLeft }: Props) {
+function Skill({ skill, directionLeft }: Props) {
   return (
     <div className="group relative flex cursor-pointer hover:scale-110 transition duration-300 ease-in-out">
       <motion.div
@@ -19,7 +22,7 @@ function Skill({ directionLeft }: Props) {
       2xl:h-[13vh] 2xl:w-min filter group-hover:grayscale transition duration-300 ease-in-out z-0 overflow-hidden p-3"
       >
         <img
-          src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
+          src={urlFor(skill?.image).url()}
           alt="skill"
           className="object-contain"
         />
@@ -29,7 +32,7 @@ function Skill({ directionLeft }: Props) {
         >
           <div className="flex items-center justify-center h-full">
             <p className="2xl:text-2xl font-bold text-black opacity-100">
-              100%
+              {skill.progress}%
             </p>
           </div>
         </div>

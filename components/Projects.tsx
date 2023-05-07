@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { Project } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -15,14 +18,17 @@ function Projects({}: Props) {
       <h3 className="pageHeading">Projects</h3>
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#FFE55C]/60">
         {projects.map((project, i) => (
-          <div className="p-5 mt-5 w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center sm:p-20 sm:mt-0 md:p-44 sm:h-screen">
+          <div
+            key={project._id}
+            className="p-5 mt-5 w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center sm:p-20 sm:mt-0 md:p-44 sm:h-screen"
+          >
             <motion.img
               initial={{ y: -300, opacity: 0 }}
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="sm:h-[35vh] mt-[12vh] 2xl:h-[40vh] 2xl:mt-[6vh] sm:object-contain cursor-pointer"
-              src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
+              src={urlFor(project?.image).url()}
               alt=""
             />
             <div
@@ -33,18 +39,25 @@ function Projects({}: Props) {
                 <span className="underline decoration-[#F7AB0A]/50">
                   Case Study of {i + 1} of {projects.length} :
                 </span>{" "}
-                Ups
+                {project?.title}
               </h4>
+
+              <div className="flex items-center justify-center space-x-4 sm:space-x-8">
+                {project?.technologies.map((technology) => (
+                  <img
+                    className="h-10 w-10 object-contain"
+                    key={technology._id}
+                    src={urlFor(technology.image).url()}
+                    alt=""
+                  />
+                ))}
+              </div>
+
               <p
                 className="text-sm
               overflow-y-auto max-h-[30vh] sm:text-lg text-center md:text-left"
               >
-                orem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s, when an unknown printer took a
-                galley of type and scrambled it to make a type specimen book. It
-                has survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. I
+                {project?.summary}
               </p>
             </div>
           </div>

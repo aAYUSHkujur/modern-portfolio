@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Skill from "./Skill";
+import { Skill as SkillType } from "../typings";
 
-type Props = {};
+type Props = {
+  skills: SkillType[];
+};
 
-function Skills({}: Props) {
+function Skills({ skills }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -15,23 +18,15 @@ function Skills({}: Props) {
     >
       <h3 className="pageHeading">Skills</h3>
       <h3 className="absolute top-[18vh] sm:top-36 uppercase tracking-[3px] text-gray-500 text-sm">
-        Hover over a skill for currency proficiency
+        Hover over a skill for current proficiency
       </h3>
       <div className="gap-2 mt-[13vh] grid grid-cols-4 sm:gap-5 sm:mt-20 xl:scale-90 xl:translate-y-12">
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
+        {skills?.slice(0, skills.length / 2).map((skill) => (
+          <Skill key={skill._id} skill={skill} />
+        ))}
+        {skills?.slice(skills.length / 2, skills.length).map((skill) => (
+          <Skill key={skill._id} skill={skill} directionLeft />
+        ))}
       </div>
     </motion.div>
   );

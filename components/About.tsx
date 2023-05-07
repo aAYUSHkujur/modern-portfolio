@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = { pageInfo: PageInfo };
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -26,7 +27,7 @@ function About({}: Props) {
         }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        src="https://saiwa.ai/wp-content/uploads/2022/12/Image-Processing-.webp"
+        src={urlFor(pageInfo?.profilePic).url()}
         alt="picture of me"
         className="w-40 h-40 mt-32 mb-2 sm:mt-10 sm:-mb-20 md:mb-0 flex-shrink-0 sm:w-56 sm:h-56 rounded-full object-cover 
         md:rounded-lg md:w-64 md:h-96 xl:w-[38vw] xl:h-[65vh] xl:max-w-[500px]"
@@ -38,10 +39,8 @@ function About({}: Props) {
           <span className="underline decoration-[#FFE55C]/50">little</span>{" "}
           background
         </h4>
-        <p
-          className="text-base  sm:h-full sm:overflow-y-auto"
-        >
-          This is background info...
+        <p className="text-base  sm:h-full sm:overflow-y-auto">
+        {pageInfo?.backgroundInformation}
         </p>
       </div>
     </motion.div>
