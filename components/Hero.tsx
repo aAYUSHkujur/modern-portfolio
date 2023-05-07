@@ -29,8 +29,8 @@ export default function Hero({ pageInfo }: Props) {
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
         src={urlFor(pageInfo?.heroImage).url()}
         alt=""
-        width={50}
-        height={50}
+        width={128}
+        height={128}
       />
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">

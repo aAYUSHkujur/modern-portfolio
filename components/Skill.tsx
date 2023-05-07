@@ -26,6 +26,8 @@ function Skill({ skill, directionLeft }: Props) {
           src={urlFor(skill?.image).url()}
           alt="skill"
           className="object-contain"
+          width={40}
+          height={40}
         />
         <div
           className="w-[20vw] aspect-square absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white 

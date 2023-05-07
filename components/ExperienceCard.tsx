@@ -42,6 +42,8 @@ function ExperienceCard({ experience }: Props) {
               className="h-10 w-10 rounded-full"
               src={urlFor(technology.image).url()}
               alt=""
+              width={40}
+              height={40}
             />
           ))}
         </div>

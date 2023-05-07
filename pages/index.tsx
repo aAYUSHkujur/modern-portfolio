@@ -68,6 +68,8 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
                 className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer  "
                 src="https://i.ibb.co/svscfdV/logo-2.png"
                 alt=""
+                height={40}
+                width={40}
               />
             </div>
           </Link>

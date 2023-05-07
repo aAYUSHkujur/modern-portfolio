@@ -50,6 +50,8 @@ function Projects({ projects }: Props) {
                     key={technology._id}
                     src={urlFor(technology.image).url()}
                     alt=""
+                    width={40}
+                    height={40}
                   />
                 ))}
               </div>
