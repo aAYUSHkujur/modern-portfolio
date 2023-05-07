@@ -5,6 +5,7 @@ import myImage from "../images/image_01.jpeg";
 import Link from "next/link";
 import { PageInfo } from "../typings";
 import { urlFor } from "../sanity";
+import Image from "next/image";
 
 type Props = { pageInfo: PageInfo };
 
@@ -24,7 +25,7 @@ export default function Hero({ pageInfo }: Props) {
     text-center overflow-hidden"
     >
       <BackgroundCircles />
-      <img
+      <Image
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
         src={urlFor(pageInfo?.heroImage).url()}
         alt=""

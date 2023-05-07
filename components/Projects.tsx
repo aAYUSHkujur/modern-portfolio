@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
+import Image from "next/image";
 
 type Props = {
   projects: Project[];
@@ -44,7 +45,7 @@ function Projects({ projects }: Props) {
 
               <div className="flex items-center justify-center space-x-4 sm:space-x-8">
                 {project?.technologies.map((technology) => (
-                  <img
+                  <Image
                     className="h-10 w-10 object-contain"
                     key={technology._id}
                     src={urlFor(technology.image).url()}

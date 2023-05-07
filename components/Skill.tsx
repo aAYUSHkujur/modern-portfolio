@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { Skill } from "../typings";
 import { urlFor } from "../sanity";
+import Image from "next/image";
 
 type Props = {
   skill: Skill;
@@ -21,7 +22,7 @@ function Skill({ skill, directionLeft }: Props) {
         className="w-[20vw] aspect-square rounded-full border flex items-center justify-center border-gray-500 sm:h-24 sm:w-24 xl:h-[11vh] xl:w-min 
       2xl:h-[13vh] 2xl:w-min filter group-hover:grayscale transition duration-300 ease-in-out z-0 overflow-hidden p-3"
       >
-        <img
+        <Image
           src={urlFor(skill?.image).url()}
           alt="skill"
           className="object-contain"
