@@ -2,10 +2,8 @@ import { PageInfo } from "../typings";
 
 export const fetchPageInfo = async () => {
   const res = await fetch(
-    `http://localhost:3000//api/getPageInfo`
+    `https://modern-portfolio-aayushkujur.vercel.app/api/getPageInfo`
   );
-
-  
 
   const data = await res.json();
 
