@@ -88,6 +88,32 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocial();
 
+  if (!pageInfo) {
+    return {
+      notFound: true,
+    };
+  }
+  if (!experiences) {
+    return {
+      notFound: true,
+    };
+  }
+  if (!skills) {
+    return {
+      notFound: true,
+    };
+  }
+  if (!projects) {
+    return {
+      notFound: true,
+    };
+  }
+  if (!socials) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       pageInfo,
